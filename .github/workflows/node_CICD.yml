@@ -1,0 +1,29 @@
+name: nodejs CI/CD pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+      jobs:
+        build_nodejs_app:
+          runs-on: ubuntu-latest
+
+          steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+
+            - name: set up Node.js 22
+              uses: action/setup-node@v4
+              with: 
+                node-version: '22'
+
+            - name:install dependencies
+              run: npm install
+
+            - name: Build application
+              run: npm run build
+
+            - name: Run ESlint
+              run: npm run lintls
+                 
