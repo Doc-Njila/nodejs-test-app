@@ -14,7 +14,7 @@ on:
               uses: actions/checkout@v4
 
             - name: set up Node.js 22
-              uses: action/setup-node@v4
+              uses: action/setup-node@v4g
               with: 
                 node-version: '22'
 
@@ -25,5 +25,5 @@ on:
               run: npm run build
 
             - name: Run ESlint
-              run: npm run lintls
+              run: npm run lint
                  
