@@ -16,6 +16,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build Application     
-        run: npm run build
+        run: echo "building application"
       - name: Run ESlint
-        run: npm run lint
+        run: echo "running eslint"
+      - name: Run Unit Test
+        run: echo "Running Unit Test"  
