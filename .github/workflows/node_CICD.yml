@@ -14,7 +14,7 @@ on:
               uses: actions/checkout@v4
 
             - name: set up Node.js 22
-              uses: action/setup-node@v4g
+              uses: action/setup-node@v4
               with: 
                 node-version: '22'
 
