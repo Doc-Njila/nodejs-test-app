@@ -49,7 +49,7 @@ jobs:
 
     #   DEPLOY TO SERVER
       - name: Add SSH Key
-        run: 
+        run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
@@ -58,8 +58,8 @@ jobs:
         run: ssh-keyscan -t rsa ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Deploy to production server
-        run: 
-          ssh -o strictHostKeyChecking=no ubuntu@$${{ secrets.SSERVER_IP }} << 'EOF'
+        run: |
+          ssh -o strictHostKeyChecking=no ubuntu@$${{ secrets.SERVER_IP }} << 'EOF'
           sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/my-nodejs-app:latest
           # sudo docker stop || true
           # sudo docker rm my-nodejs-app || true 
